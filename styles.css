@@ -2,18 +2,78 @@ body {
   font-family: Courier;
 }
 
-@keyframes test1 {
-    from {opacity: 0;}
+@keyframes titulo {
+    from {opacity: 1;}
     to {opacity: 1;}
+}
+
+@keyframes boxA1 {
+    from {opacity: 1;}
+    to {opacity: 1;}
+}
+
+.youtube:hover {
+  color: #c4302b;
+}
+
+.github:hover {
+  color: #4078c0;
+}
+
+.mail:hover {
+  color: gray;
+}
+
+.facebook:hover {
+  color: #3B5998;
+}
+
+a:link {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: none;
 }
 
 h1 {
   text-align: center;
   margin: 30px;
   font-size: 350%;
-  animation-name: test1;
+  animation-name: titulo;
   animation-duration: 2s;
   animation-timing-function: ease-in-out;
+}
+
+.box0left {
+  position: absolute;
+  margin-right: 190px;
+  left: 0;
+  right: 50%;
+  top: 46px;
+  height: 35px;
+  text-align: right;
+  overflow: hidden;
+}
+
+.box0right {
+  margin-left: 190px;
+  position: absolute;
+  left: 50%;
+  right: 0;
+  top: 46px;
+  height: 35px;
+  text-align: left;
+  overflow: hidden;
 }
 
 .box1 {
@@ -21,4 +81,7 @@ h1 {
   height: 150px;
   padding: 25px;
   color: white;
+  animation-name: boxA1;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
 }
