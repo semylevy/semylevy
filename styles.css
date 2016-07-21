@@ -1,5 +1,7 @@
 body {
   font-family: Courier;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 @keyframes titulo {
@@ -14,6 +16,7 @@ body {
 
 .youtube:hover {
   color: #c4302b;
+  cursor: url(images/cursor.png), auto;
 }
 
 .github:hover {
@@ -84,4 +87,40 @@ h1 {
   animation-name: boxA1;
   animation-duration: 3s;
   animation-timing-function: ease-in-out;
+  overflow: scroll;
+}
+
+.tamano {
+    box-sizing: border-box;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.box2 {
+  background-color: #ff9900;
+  width: 50%;
+  height: 150px;
+  float: left;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.box3 {
+  background-color: #ffc266;
+  width: 50%;
+  height: 150px;
+  float: left;
+  margin-top: 5px;
+}
+
+.box4 {
+  background-color: #cc7a00;
+  width: 50%;
+  height: 310px;
+  float: right;
+  margin-top: 5px;
+  text-align: center;
 }
