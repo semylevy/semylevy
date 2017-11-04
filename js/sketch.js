@@ -1,36 +1,34 @@
-var x, y;
+var texts, canvas, width, x, y;
 
 function setup() {
-  var myCanvas = createCanvas(200, 200);
-  myCanvas.parent('cont4');
-  x = 0;
-  y = height/2;
-
+  width = window.innerWidth;
+  canvas = createCanvas(width-10, 300);
+  canvas.parent('c_space');
+  texts = document.getElementsByClassName("subpages");
+  for(var i = 0; i < texts.length; i++) {
+    var word = texts[i];
+    x = random(width-20);
+    y = random(100)+200;
+    word.addEventListener("click", doSomething);
+    word.style.left = x + "px";
+    word.style.top = y + "px";
+    drawRecursive(x, y-127, 160, 20);
+  }
 }
 
-var control = 0;
-var direction = true;
+function doSomething() { }
+
+function drawRecursive(x, y, size, level) {
+  noStroke();
+  fill(0,0,0,level*1.8);
+  ellipse(x, y, size, size);
+  if(level > 6) {
+    level--;
+    drawRecursive(x, y, size/1.2, level);
+  }
+}
 
 function draw() {
-
-  clear();
+  //clear();
   fill(300);
-  rect(x, y, 63, 63);
-
-  if(direction==true) {
-    x += 1;
-    control += 1;
-  }
-  if(control==100) {
-    direction=false;
-  }
-
-  if(direction==false) {
-    x -= 1;
-    control -= 1;
-  }
-  if(control==0) {
-    direction=true;
-  }
-
 }

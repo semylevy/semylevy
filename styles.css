@@ -1,126 +1,28 @@
 body {
-  font-family: Courier;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-@keyframes titulo {
-    from {opacity: 1;}
-    to {opacity: 1;}
-}
-
-@keyframes boxA1 {
-    from {opacity: 1;}
-    to {opacity: 1;}
-}
-
-.youtube:hover {
-  color: #c4302b;
-  cursor: url(images/cursor.png), auto;
-}
-
-.github:hover {
-  color: #4078c0;
-}
-
-.mail:hover {
-  color: gray;
-}
-
-.facebook:hover {
-  color: #3B5998;
-}
-
-a:link {
-    color: black;
-    background-color: transparent;
-    text-decoration: none;
-}
-a:visited {
-    color: black;
-    background-color: transparent;
-    text-decoration: none;
-}
-
-a:active {
-    color: yellow;
-    background-color: transparent;
-    text-decoration: none;
+  font-family: 'Sumana', serif;
 }
 
 h1 {
   text-align: center;
-  margin: 30px;
-  font-size: 350%;
-  animation-name: titulo;
-  animation-duration: 2s;
-  animation-timing-function: ease-in-out;
+  font-size: 50px;
+  margin: 0;
+  line-height: 60px;
 }
 
-.box0left {
-  position: absolute;
-  margin-right: 190px;
-  left: 0;
-  right: 50%;
-  top: 46px;
-  height: 35px;
-  text-align: right;
-  overflow: hidden;
-}
-
-.box0right {
-  margin-left: 190px;
-  position: absolute;
-  left: 50%;
-  right: 0;
-  top: 46px;
-  height: 35px;
-  text-align: left;
-  overflow: hidden;
-}
-
-.box1 {
-  background-color: black;
-  height: 150px;
-  padding: 25px;
-  color: white;
-  animation-name: boxA1;
-  animation-duration: 3s;
-  animation-timing-function: ease-in-out;
-  overflow: scroll;
-}
-
-.tamano {
-    box-sizing: border-box;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 15px;
-    margin-left: -5px;
-    margin-right: -5px;
-}
-
-.box2 {
-  background-color: #ff9900;
-  width: 50%;
-  height: 150px;
-  float: left;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-.box3 {
-  background-color: #ffc266;
-  width: 50%;
-  height: 150px;
-  float: left;
-  margin-top: 5px;
-}
-
-.box4 {
-  background-color: #cc7a00;
-  width: 50%;
-  height: 310px;
-  float: right;
-  margin-top: 5px;
+.description {
+  font-size: 20px;
   text-align: center;
+}
+
+.subpages {
+  cursor: pointer;
+}
+
+h2 {
+  margin: 0;
+  position: absolute;
+}
+
+a {
+  color: black;
 }
