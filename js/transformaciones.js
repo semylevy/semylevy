@@ -21,15 +21,15 @@ function newShape(type) {
   angle = parseInt(document.getElementById('rotate_val_theta').value);
   rx = parseInt(document.getElementById('rotate_val_x').value);
   ry = parseInt(document.getElementById('rotate_val_y').value);
-  sx = parseInt(document.getElementById('scale_val_x').value);
-  sy = parseInt(document.getElementById('scale_val_y').value);
+  sx = parseFloat(document.getElementById('scale_val_x').value);
+  sy = parseFloat(document.getElementById('scale_val_y').value);
 
   switch (type) {
     case 0:
       s.polygon(sides, length, x1, y1);
       s.translate(tx, ty);
       s.rotate(angle, rx, ry);
-      //s.scale(sx, sy);
+      s.scale(sx, sy);
       s.print();
       shape_array.push(s);
       break;
@@ -83,10 +83,8 @@ class Shape {
   }
   translate(tx, ty) {
     for(var i = 0; i < this.coords.length; i++) {
-      console.log(this.coords[i][0]);
       this.coords[i][0] += tx;
       this.coords[i][1] += ty;
-      console.log(this.coords[i][0]);
     }
   }
 
