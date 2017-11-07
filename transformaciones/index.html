@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Coming soon...</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/transformaciones.css">
+    <script src="../js/p5.js"></script>
+    <script src="../js/transformaciones.js"></script>
+    <script type='text/javascript' src='../js/p5.dom.js'></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+          <div class="animations" id="t_space">
+            <span id="tooltip-span"></span>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <div class="panel panel-default" id="selection_space">
+            <div class="panel-body">
+              <h2>Add Shape</h2>
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item active">
+                  <a class="nav-link active" data-toggle="tab" href="#polygon" role="tab">Polygon</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#arc" role="tab">Arc</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#3d" role="tab">3D</a>
+                </li>
+              </ul>
+              <form>
+                <div class="form-group">
+                  <br>
+                  <button type="button" class="btn btn-secondary" onclick="setListener()">Select Origin</button>
+                  <small id="passwordHelpInline" class="text-muted">
+                    Hover on coord-plane to select.
+                  </small>
+                  <h1><span class="label progress-bar-success" id="coords_text">0, 0</span></h1>
+                </div>
+              </form>
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div class="tab-pane active" id="polygon" role="tabpanel">
+                  <form>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Number of faces</label>
+                      <input type="email" class="form-control" id="side_num" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Side length</label>
+                      <input type="email" class="form-control" id="side_length" aria-describedby="passwordHelpInline">
+                      <small id="passwordHelpInline" class="text-muted">
+                        Size in pixels.
+                      </small>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Translate</label>
+                      <div class="row">
+                        <div class="form-group col-xs-6">
+                          <input class="form-control" id="translate_val_x" aria-describedby="emailHelp" value="0">
+                          <small id="emailHelp" class="form-text text-muted">Tx</small>
+                        </div>
+                        <div class="form-group col-xs-6">
+                          <input class="form-control" id="translate_val_y" aria-describedby="emailHelp" value="0">
+                          <small id="emailHelp" class="form-text text-muted">Ty</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Rotate</label>
+                      <div class="row">
+                        <div class="form-group col-xs-4">
+                          <input class="form-control" id="rotate_val_theta" aria-describedby="emailHelp" value="0">
+                          <small id="emailHelp" class="form-text text-muted">Angle</small>
+                        </div>
+                        <div class="form-group col-xs-4">
+                          <input class="form-control" id="rotate_val_x" aria-describedby="emailHelp" value="0">
+                          <small id="emailHelp" class="form-text text-muted">Rx</small>
+                        </div>
+                        <div class="form-group col-xs-4">
+                          <input class="form-control" id="rotate_val_y" aria-describedby="emailHelp" value="0">
+                          <small id="emailHelp" class="form-text text-muted">Ry</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Scale</label>
+                      <div class="row">
+                        <div class="form-group col-xs-6">
+                          <input class="form-control" id="scale_val_x" aria-describedby="emailHelp" value="1">
+                          <small id="emailHelp" class="form-text text-muted">Sx</small>
+                        </div>
+                        <div class="form-group col-xs-6">
+                          <input class="form-control" id="scale_val_y" aria-describedby="emailHelp" value="1">
+                          <small id="emailHelp" class="form-text text-muted">Sy</small>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="button" name="button" class="btn btn-primary" onclick="newShape(0)">Print!</button>
+                  </form>
+                </div>
+                <div class="tab-pane" id="arc" role="tabpanel">
+                </div>
+                <div class="tab-pane" id="3d" role="tabpanel">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

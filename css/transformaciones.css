@@ -1,0 +1,14 @@
+.animations {
+    text-decoration:none;
+    position:relative;
+}
+
+.animations span {
+    display:none;
+}
+
+.animations:hover span {
+    display:block;
+    position:fixed;
+    overflow:hidden;
+}
