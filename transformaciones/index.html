@@ -30,20 +30,26 @@
                   <a class="nav-link active" data-toggle="tab" href="#polygon" role="tab">Polygon</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#arc" role="tab">Arc</a>
+                  <a class="nav-link" data-toggle="tab" href="#arc_shapes" role="tab">Arc</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#3d" role="tab">3D</a>
-                </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">3D
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a role="tab" data-toggle="tab" href="#3d-cube">Cube</a></li>
+                      <li><a role="tab" data-toggle="tab" href="#3d-prism-rectangular">Rectangular prism</a></li>
+                      <li><a role="tab" data-toggle="tab" href="#3d-prism-triangular">Triangular prism</a></li>
+                      <li><a role="tab" data-toggle="tab" href="#3d-cone">Cone</a></li>
+                    </ul>
+                  </li>
               </ul>
               <form>
                 <div class="form-group">
-                  <br>
+                  <h1><span class="label progress-bar-success" id="coords_text">0, 0</span></h1>
                   <button type="button" class="btn btn-secondary" onclick="setListener()">Select Origin</button>
                   <small id="passwordHelpInline" class="text-muted">
                     Hover on coord-plane to select.
                   </small>
-                  <h1><span class="label progress-bar-success" id="coords_text">0, 0</span></h1>
                 </div>
               </form>
               <!-- Tab panes -->
@@ -51,67 +57,137 @@
                 <div class="tab-pane active" id="polygon" role="tabpanel">
                   <form>
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Number of faces</label>
-                      <input type="email" class="form-control" id="side_num" aria-describedby="emailHelp">
-                    </div>
-                    <div class="form-group">
                       <label for="exampleInputEmail1">Side length</label>
-                      <input type="email" class="form-control" id="side_length" aria-describedby="passwordHelpInline">
+                      <input type="email" class="form-control" id="polygon_side_length" aria-describedby="passwordHelpInline">
                       <small id="passwordHelpInline" class="text-muted">
                         Size in pixels.
                       </small>
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Translate</label>
-                      <div class="row">
-                        <div class="form-group col-xs-6">
-                          <input class="form-control" id="translate_val_x" aria-describedby="emailHelp" value="0">
-                          <small id="emailHelp" class="form-text text-muted">Tx</small>
-                        </div>
-                        <div class="form-group col-xs-6">
-                          <input class="form-control" id="translate_val_y" aria-describedby="emailHelp" value="0">
-                          <small id="emailHelp" class="form-text text-muted">Ty</small>
-                        </div>
-                      </div>
+                      <label for="exampleInputEmail1">Number of faces</label>
+                      <input type="email" class="form-control" id="side_num" aria-describedby="emailHelp">
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Rotate</label>
-                      <div class="row">
-                        <div class="form-group col-xs-4">
-                          <input class="form-control" id="rotate_val_theta" aria-describedby="emailHelp" value="0">
-                          <small id="emailHelp" class="form-text text-muted">Angle</small>
-                        </div>
-                        <div class="form-group col-xs-4">
-                          <input class="form-control" id="rotate_val_x" aria-describedby="emailHelp" value="0">
-                          <small id="emailHelp" class="form-text text-muted">Rx</small>
-                        </div>
-                        <div class="form-group col-xs-4">
-                          <input class="form-control" id="rotate_val_y" aria-describedby="emailHelp" value="0">
-                          <small id="emailHelp" class="form-text text-muted">Ry</small>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Scale</label>
-                      <div class="row">
-                        <div class="form-group col-xs-6">
-                          <input class="form-control" id="scale_val_x" aria-describedby="emailHelp" value="1">
-                          <small id="emailHelp" class="form-text text-muted">Sx</small>
-                        </div>
-                        <div class="form-group col-xs-6">
-                          <input class="form-control" id="scale_val_y" aria-describedby="emailHelp" value="1">
-                          <small id="emailHelp" class="form-text text-muted">Sy</small>
-                        </div>
-                      </div>
-                    </div>
-                    <button type="button" name="button" class="btn btn-primary" onclick="newShape(0)">Print!</button>
                   </form>
                 </div>
-                <div class="tab-pane" id="arc" role="tabpanel">
+                <div class="tab-pane" id="arc_shapes" role="tabpanel">
+                  <form>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Radius</label>
+                      <input type="email" class="form-control" id="arc_radius" aria-describedby="passwordHelpInline">
+                      <small id="passwordHelpInline" class="text-muted">
+                        Size in pixels.
+                      </small>
+                    </div>
+                  </form>
                 </div>
-                <div class="tab-pane" id="3d" role="tabpanel">
+                <div class="tab-pane" id="3d-cube" role="tabpanel">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Side length</label>
+                    <input type="email" class="form-control" id="cube_side_length" aria-describedby="passwordHelpInline">
+                    <small id="passwordHelpInline" class="text-muted">
+                      Size in pixels.
+                    </small>
+                  </div>
+                </div>
+                <div class="tab-pane" id="3d-prism-rectangular" role="tabpanel">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="form-group col-xs-4">
+                        <label for="exampleInputEmail1">Width</label>
+                        <input class="form-control" id="prism_rct_width" aria-describedby="emailHelp" value="0">
+                      </div>
+                      <div class="form-group col-xs-4">
+                        <label for="exampleInputEmail1">Height</label>
+                        <input class="form-control" id="prism_rct_height" aria-describedby="emailHelp" value="0">
+                      </div>
+                      <div class="form-group col-xs-4">
+                        <label for="exampleInputEmail1">Depth</label>
+                        <input class="form-control" id="prism_rct_depth" aria-describedby="emailHelp" value="0">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="3d-prism-triangular" role="tabpanel">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="form-group col-xs-6">
+                        <label for="exampleInputEmail1">Side length</label>
+                        <input type="email" class="form-control" id="prism_tr_side" aria-describedby="passwordHelpInline">
+                        <small id="passwordHelpInline" class="text-muted">
+                          Size in pixels.
+                        </small>
+                      </div>
+                      <div class="form-group col-xs-6">
+                        <label for="exampleInputEmail1">Depth</label>
+                        <input type="email" class="form-control" id="prism_tr_depth" aria-describedby="passwordHelpInline">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="3d-cone" role="tabpanel">
                 </div>
               </div>
+              <form>
+                <div class="form-group">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Translate</label>
+                    <div class="row">
+                      <div class="form-group col-xs-6">
+                        <input class="form-control" id="translate_val_x" aria-describedby="emailHelp" value="0">
+                        <small id="emailHelp" class="form-text text-muted">Tx</small>
+                      </div>
+                      <div class="form-group col-xs-6">
+                        <input class="form-control" id="translate_val_y" aria-describedby="emailHelp" value="0">
+                        <small id="emailHelp" class="form-text text-muted">Ty</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Rotate</label>
+                    <div class="row">
+                      <div class="form-group col-xs-4">
+                        <input class="form-control" id="rotate_val_theta" aria-describedby="emailHelp" value="0">
+                        <small id="emailHelp" class="form-text text-muted">Angle</small>
+                      </div>
+                      <div class="form-group col-xs-4">
+                        <input class="form-control" id="rotate_val_x" aria-describedby="emailHelp" value="0">
+                        <small id="emailHelp" class="form-text text-muted">Rx</small>
+                      </div>
+                      <div class="form-group col-xs-4">
+                        <input class="form-control" id="rotate_val_y" aria-describedby="emailHelp" value="0">
+                        <small id="emailHelp" class="form-text text-muted">Ry</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Scale</label>
+                    <div class="row">
+                      <div class="form-group col-xs-6">
+                        <input class="form-control" id="scale_val_x" aria-describedby="emailHelp" value="1">
+                        <small id="emailHelp" class="form-text text-muted">Sx</small>
+                      </div>
+                      <div class="form-group col-xs-6">
+                        <input class="form-control" id="scale_val_y" aria-describedby="emailHelp" value="1">
+                        <small id="emailHelp" class="form-text text-muted">Sy</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label>Reflect</label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" value="1" id="reflect_x">On X
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" value="2" id="reflect_y">On Y
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" value="3" id="reflect_parallel">Parallel
+                    </label>
+                  </div>
+                  <button type="button" name="button" class="btn btn-primary" onclick="newShape()">Print!</button>
+                  <button type="button" name="button" class="btn btn-secondary" onclick="clearScreen()">Clear</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
