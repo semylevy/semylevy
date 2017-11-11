@@ -2,7 +2,7 @@ var canvas, type, q, coord, shape_array, curr_coords, w_height, w_width;
 
 function setup () {
   curr_coords = [0, 0];
-  w_height = document.documentElement.clientHeight;
+  w_height = document.documentElement.clientHeight-10;
   w_width = document.getElementById('t_space').offsetWidth;
   canvas = createCanvas(w_width, w_height);
   canvas.parent('t_space');
@@ -62,69 +62,43 @@ function newShape() {
       length = parseInt(document.getElementById('polygon_side_length').value);
       sides = parseInt(document.getElementById('side_num').value);
       s.polygon(sides, length, x1, y1);
-      s.translate(tx, ty);
-      s.rotate(angle, rx, ry);
-      s.scale(sx, sy);
-      if(rf_x) s.reflect(1);
-      if(rf_y) s.reflect(2);
-      if(rf_p) s.reflect(3);
-      s.print();
-      shape_array.push(s);
       break;
     case 1:
-      var radius = parseInt(document.getElementById('arc_radius').value);
-      s.circle(x1, y1, radius);
-      s.translate(tx, ty);
-      s.rotate(angle, rx, ry);
-      s.scale(sx, sy);
-      if(rf_x) s.reflect(1);
-      if(rf_y) s.reflect(2);
-      if(rf_p) s.reflect(3);
-      s.print();
-      shape_array.push(s);
+      var arc_radius = parseInt(document.getElementById('arc_radius').value);
+      var arc_angle = parseInt(document.getElementById('arc_angle').value);
+      s.circle(x1, y1, arc_radius, arc_angle);
       break;
     case 2:
       length = parseInt(document.getElementById('cube_side_length').value);
       s.cube(length, x1, y1);
-      s.translate(tx, ty);
-      s.rotate(angle, rx, ry);
-      s.scale(sx, sy);
-      if(rf_x) s.reflect(1);
-      if(rf_y) s.reflect(2);
-      if(rf_p) s.reflect(3);
-      s.print();
-      shape_array.push(s);
       break;
     case 3:
       var prism_width = parseInt(document.getElementById('prism_rct_width').value);
       var prism_height = parseInt(document.getElementById('prism_rct_height').value);
       var prism_depth = parseInt(document.getElementById('prism_rct_depth').value);
       s.prismRect(x1, y1, prism_width, prism_height, prism_depth);
-      s.translate(tx, ty);
-      s.rotate(angle, rx, ry);
-      s.scale(sx, sy);
-      if(rf_x) s.reflect(1);
-      if(rf_y) s.reflect(2);
-      if(rf_p) s.reflect(3);
-      s.print();
-      shape_array.push(s);
       break;
     case 4:
       var prism_side = parseInt(document.getElementById('prism_tr_side').value);
       var prism_depth = parseInt(document.getElementById('prism_tr_depth').value);
       s.prismTriang(x1, y1, prism_side, prism_depth);
-      s.translate(tx, ty);
-      s.rotate(angle, rx, ry);
-      s.scale(sx, sy);
-      if(rf_x) s.reflect(1);
-      if(rf_y) s.reflect(2);
-      if(rf_p) s.reflect(3);
-      s.print();
-      shape_array.push(s);
       break;
-      default:
+    case 5:
+      var cone_radius = parseInt(document.getElementById('cone_radius').value);
+      var cone_height = parseInt(document.getElementById('cone_height').value);
+      s.cone(x1, y1, cone_radius, cone_height);
+      break;
+    default:
       break;
   }
+  s.translate(tx, ty);
+  s.rotate(angle, rx, ry);
+  s.scale(sx, sy);
+  if(rf_x) s.reflect(1);
+  if(rf_y) s.reflect(2);
+  if(rf_p) s.reflect(4);
+  s.print();
+  shape_array.push(s);
 }
 
 class Queue {
@@ -204,8 +178,13 @@ class Shape {
         this.coords[i][0] -= (w_width/2);
         this.coords[i][0] *= -1;
         this.coords[i][0] += (w_width/2);
-      } else if (direction == 2) {
-        return;
+      } else if (direction == 4 || direction == 5 || direction == 6) {
+        this.coords[i][1] -= (w_height/2);
+        this.coords[i][1] *= -1;
+        this.coords[i][1] += (w_height/2);
+        this.coords[i][0] -= (w_width/2);
+        this.coords[i][0] *= -1;
+        this.coords[i][0] += (w_width/2);
       }
     }
   }
@@ -279,35 +258,43 @@ class Shape {
     this.line(x1 + length/2, y1 + height, x1 + length/2 + separation, y1 + height + separation)
   }
 
-  circle(x0, y0, radius) {
+  circle(x0, y0, radius, angle) {
+    // Algorithm from wikipedia.org/wiki/Midpoint_circle_algorithm
     var x = radius-1;
     var y = 0;
     var dx = 1;
     var dy = 1;
     var err = dx - (radius << 1);
 
-    while (x >= y)
-    {
-        this.addCoord(x0 + x, y0 + y);
-        this.addCoord(x0 + y, y0 + x);
-        // this.addCoord(x0 - y, y0 + x);
-        // this.addCoord(x0 - x, y0 + y);
-        // this.addCoord(x0 - x, y0 - y);
-        // this.addCoord(x0 - y, y0 - x);
-        // this.addCoord(x0 + y, y0 - x);
-        // this.addCoord(x0 + x, y0 - y);
+    while (x >= y) {
+      if(angle >= 45) this.addCoord(x0 + x, y0 + y);
+      if(angle >= 90) this.addCoord(x0 + y, y0 + x);
+      if(angle >= 135) this.addCoord(x0 - y, y0 + x);
+      if(angle >= 180) this.addCoord(x0 - x, y0 + y);
+      if(angle >= 225) this.addCoord(x0 - x, y0 - y);
+      if(angle >= 270) this.addCoord(x0 - y, y0 - x);
+      if(angle >= 315) this.addCoord(x0 + y, y0 - x);
+      if(angle >= 360) this.addCoord(x0 + x, y0 - y);
 
-        if (err <= 0) {
-            y++;
-            err += dy;
-            dy += 2;
-        }
-        if (err > 0) {
-            x--;
-            dx += 2;
-            err += (-radius << 1) + dx;
-        }
+      if(err <= 0) {
+        y++;
+        err += dy;
+        dy += 2;
+      }
+      if(err > 0) {
+        x--;
+        dx += 2;
+        err += (-radius << 1) + dx;
+      }
     }
+  }
+
+  cone(x1, y1, radius, height) {
+    this.circle(x1, y1, radius, 360);
+    this.line(x1 - radius, y1, x1, y1 - height);
+    this.line(x1 + radius, y1, x1, y1 - height);
+    this.line(x1, y1 + radius, x1, y1 - height);
+    this.line(x1, y1 - radius, x1, y1 - height);
   }
 }
 

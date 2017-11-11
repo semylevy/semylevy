@@ -71,12 +71,21 @@
                 </div>
                 <div class="tab-pane" id="arc_shapes" role="tabpanel">
                   <form>
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Radius</label>
-                      <input type="email" class="form-control" id="arc_radius" aria-describedby="passwordHelpInline">
-                      <small id="passwordHelpInline" class="text-muted">
-                        Size in pixels.
-                      </small>
+                    <div class="row">
+                      <div class="form-group col-xs-6">
+                        <label for="exampleInputEmail1">Radius</label>
+                        <input type="email" class="form-control" id="arc_radius" aria-describedby="passwordHelpInline">
+                        <small id="passwordHelpInline" class="text-muted">
+                          Size in pixels.
+                        </small>
+                      </div>
+                      <div class="form-group col-xs-6">
+                        <label for="exampleInputEmail1">Angle</label>
+                        <input type="email" class="form-control" id="arc_angle" aria-describedby="passwordHelpInline">
+                        <small id="passwordHelpInline" class="text-muted">
+                          Degrees, only multiples of 45º.
+                        </small>
+                      </div>
                     </div>
                   </form>
                 </div>
@@ -125,6 +134,19 @@
                   </div>
                 </div>
                 <div class="tab-pane" id="3d-cone" role="tabpanel">
+                  <div class="row">
+                    <div class="form-group col-xs-6">
+                      <label for="exampleInputEmail1">Radius</label>
+                      <input type="email" class="form-control" id="cone_radius" aria-describedby="passwordHelpInline">
+                      <small id="passwordHelpInline" class="text-muted">
+                        Size in pixels.
+                      </small>
+                    </div>
+                    <div class="form-group col-xs-6">
+                      <label for="exampleInputEmail1">Height</label>
+                      <input type="email" class="form-control" id="cone_height" aria-describedby="passwordHelpInline">
+                    </div>
+                  </div>
                 </div>
               </div>
               <form>
@@ -147,7 +169,7 @@
                     <div class="row">
                       <div class="form-group col-xs-4">
                         <input class="form-control" id="rotate_val_theta" aria-describedby="emailHelp" value="0">
-                        <small id="emailHelp" class="form-text text-muted">Angle</small>
+                        <small id="emailHelp" class="form-text text-muted">Angle (degrees)</small>
                       </div>
                       <div class="form-group col-xs-4">
                         <input class="form-control" id="rotate_val_x" aria-describedby="emailHelp" value="0">
@@ -181,7 +203,7 @@
                       <input type="checkbox" value="2" id="reflect_y">On Y
                     </label>
                     <label class="checkbox-inline">
-                      <input type="checkbox" value="3" id="reflect_parallel">Parallel
+                      <input type="checkbox" value="4" id="reflect_parallel">Parallel
                     </label>
                   </div>
                   <button type="button" name="button" class="btn btn-primary" onclick="newShape()">Print!</button>
