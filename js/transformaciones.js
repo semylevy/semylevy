@@ -260,7 +260,7 @@ class Shape {
 
   circle(x0, y0, radius, angle) {
     // Algorithm from wikipedia.org/wiki/Midpoint_circle_algorithm
-    var x = radius-1;
+    var x = radius;
     var y = 0;
     var dx = 1;
     var dy = 1;
