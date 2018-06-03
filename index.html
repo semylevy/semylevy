@@ -3,23 +3,40 @@
   <head>
     <meta charset="utf-8">
     <title>Semy Levy</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Sumana" rel="stylesheet">
-    <script src="js/p5.js"></script>
-    <script src="js/sketch.js"></script>
-    <script type='text/javascript' src='js/p5.dom.js'></script>
+    <script src="js/funct.js"></script>
   </head>
   <body>
-    <div class="Content">
-      <h1>Semy Levy</h1>
-      <p class="description">Personal workplace.</p>
-      <div class="animations" id="c_space">
-        <div>
-          <a href="resume/SalomonLevyResume.pdf" target="_blank"><h2 class="subpages">About</h2></a>
-          <a href="https://github.com/semylevy" target="_blank"><h2 class="subpages">Projects</h2></a>
-          <a href="g-sandbox"><h2 class="subpages">More</h2></a>
-        </div>
-      </div>
+    <button class="tablink" id="landingPage" onclick="openPage('Home', this, '#f2453d')">Home</button>
+    <button class="tablink" onclick="openPage('Projects', this, '#50ae54')">Projects</button>
+    <button class="tablink" onclick="openPage('About', this, '#2c98f0')">About</button>
+    <button class="tablink" onclick="openPage('More', this, '#fc5830')">More</button>
+    
+    <div id="Home" class="tabcontent">
+      <h2>Semy Levy</h2>
+      <p>Home is where the heart is..</p>
+    </div>
+    
+    <div id="Projects" class="tabcontent">
+      <h2>Projects</h2>
+      <ul style="list-style-type:square">
+        <li><a href="g-sandbox">Geometry Sandbox</a></li>
+        <li>Zero Pi Day Bot</li>
+        <li>More to come...</li>
+      </ul>
+    </div>
+    
+    <div id="About" class="tabcontent">
+      <h2>About me</h2>
+      <p>Write something about me.<br><a href="resume/SalomonLevyResume.pdf">Here</a> is my resume. And <a href="https://github.com/semylevy">here</a> is mi Gihtub page.</p>
+
+    </div>
+    
+    <div id="More" class="tabcontent">
+      <h2>More...</h2>
+      <p>What is this?</p>
     </div>
   </body>
 </html>
